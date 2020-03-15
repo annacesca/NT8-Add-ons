@@ -33,7 +33,7 @@ using System.Diagnostics;
 //This namespace holds Indicators in this folder and is required. Do not change it. 
 namespace NinjaTrader.NinjaScript.Indicators
 {
-	public class TF_Lunar : Indicator
+	public class Lunar : Indicator
 	{
 		int firstDate = 99;
 		DateTime oldNow = new DateTime();
@@ -43,7 +43,7 @@ namespace NinjaTrader.NinjaScript.Indicators
 		public  List<DateTime> _fullMoon;
 		public  List<DateTime> _thrdQrtr;
 		
-		public TF_Lunar()	
+		public Lunar()	
 		{
 			_newMoon=new List<DateTime>();
 			NewMoonDates();
@@ -60,7 +60,7 @@ namespace NinjaTrader.NinjaScript.Indicators
 			if (State == State.SetDefaults)
 			{
 				Description									= @"Enter the description for your new custom Indicator here.";
-				Name										= "TF_Lunar";
+				Name										= "Lunar";
 				Calculate									= Calculate.OnEachTick;
 				IsOverlay									= false;
 				DisplayInDataBox							= true;
@@ -1688,19 +1688,19 @@ namespace NinjaTrader.NinjaScript.Indicators
 {
 	public partial class Indicator : NinjaTrader.Gui.NinjaScript.IndicatorRenderBase
 	{
-		private TF_Lunar[] cacheTF_Lunar;
-		public TF_Lunar TF_Lunar(Brush fullMoon, Brush newMoon, Brush q1, Brush q3, double distanceFromBars)
+		private Lunar[] cacheLunar;
+		public Lunar Lunar(Brush fullMoon, Brush newMoon, Brush q1, Brush q3, double distanceFromBars)
 		{
-			return TF_Lunar(Input, fullMoon, newMoon, q1, q3, distanceFromBars);
+			return Lunar(Input, fullMoon, newMoon, q1, q3, distanceFromBars);
 		}
 
-		public TF_Lunar TF_Lunar(ISeries<double> input, Brush fullMoon, Brush newMoon, Brush q1, Brush q3, double distanceFromBars)
+		public Lunar Lunar(ISeries<double> input, Brush fullMoon, Brush newMoon, Brush q1, Brush q3, double distanceFromBars)
 		{
-			if (cacheTF_Lunar != null)
-				for (int idx = 0; idx < cacheTF_Lunar.Length; idx++)
-					if (cacheTF_Lunar[idx] != null && cacheTF_Lunar[idx].FullMoon == fullMoon && cacheTF_Lunar[idx].NewMoon == newMoon && cacheTF_Lunar[idx].Q1 == q1 && cacheTF_Lunar[idx].Q3 == q3 && cacheTF_Lunar[idx].DistanceFromBars == distanceFromBars && cacheTF_Lunar[idx].EqualsInput(input))
-						return cacheTF_Lunar[idx];
-			return CacheIndicator<TF_Lunar>(new TF_Lunar(){ FullMoon = fullMoon, NewMoon = newMoon, Q1 = q1, Q3 = q3, DistanceFromBars = distanceFromBars }, input, ref cacheTF_Lunar);
+			if (cacheLunar != null)
+				for (int idx = 0; idx < cacheLunar.Length; idx++)
+					if (cacheLunar[idx] != null && cacheLunar[idx].FullMoon == fullMoon && cacheLunar[idx].NewMoon == newMoon && cacheLunar[idx].Q1 == q1 && cacheLunar[idx].Q3 == q3 && cacheLunar[idx].DistanceFromBars == distanceFromBars && cacheLunar[idx].EqualsInput(input))
+						return cacheLunar[idx];
+			return CacheIndicator<Lunar>(new Lunar(){ FullMoon = fullMoon, NewMoon = newMoon, Q1 = q1, Q3 = q3, DistanceFromBars = distanceFromBars }, input, ref cacheLunar);
 		}
 	}
 }
@@ -1709,14 +1709,14 @@ namespace NinjaTrader.NinjaScript.MarketAnalyzerColumns
 {
 	public partial class MarketAnalyzerColumn : MarketAnalyzerColumnBase
 	{
-		public Indicators.TF_Lunar TF_Lunar(Brush fullMoon, Brush newMoon, Brush q1, Brush q3, double distanceFromBars)
+		public Indicators.Lunar Lunar(Brush fullMoon, Brush newMoon, Brush q1, Brush q3, double distanceFromBars)
 		{
-			return indicator.TF_Lunar(Input, fullMoon, newMoon, q1, q3, distanceFromBars);
+			return indicator.Lunar(Input, fullMoon, newMoon, q1, q3, distanceFromBars);
 		}
 
-		public Indicators.TF_Lunar TF_Lunar(ISeries<double> input , Brush fullMoon, Brush newMoon, Brush q1, Brush q3, double distanceFromBars)
+		public Indicators.Lunar Lunar(ISeries<double> input , Brush fullMoon, Brush newMoon, Brush q1, Brush q3, double distanceFromBars)
 		{
-			return indicator.TF_Lunar(input, fullMoon, newMoon, q1, q3, distanceFromBars);
+			return indicator.Lunar(input, fullMoon, newMoon, q1, q3, distanceFromBars);
 		}
 	}
 }
@@ -1725,14 +1725,14 @@ namespace NinjaTrader.NinjaScript.Strategies
 {
 	public partial class Strategy : NinjaTrader.Gui.NinjaScript.StrategyRenderBase
 	{
-		public Indicators.TF_Lunar TF_Lunar(Brush fullMoon, Brush newMoon, Brush q1, Brush q3, double distanceFromBars)
+		public Indicators.Lunar Lunar(Brush fullMoon, Brush newMoon, Brush q1, Brush q3, double distanceFromBars)
 		{
-			return indicator.TF_Lunar(Input, fullMoon, newMoon, q1, q3, distanceFromBars);
+			return indicator.Lunar(Input, fullMoon, newMoon, q1, q3, distanceFromBars);
 		}
 
-		public Indicators.TF_Lunar TF_Lunar(ISeries<double> input , Brush fullMoon, Brush newMoon, Brush q1, Brush q3, double distanceFromBars)
+		public Indicators.Lunar Lunar(ISeries<double> input , Brush fullMoon, Brush newMoon, Brush q1, Brush q3, double distanceFromBars)
 		{
-			return indicator.TF_Lunar(input, fullMoon, newMoon, q1, q3, distanceFromBars);
+			return indicator.Lunar(input, fullMoon, newMoon, q1, q3, distanceFromBars);
 		}
 	}
 }
