@@ -155,57 +155,6 @@ namespace NinjaTrader.NinjaScript.Indicators
 					}	
 				}
 				
-//				if (firstDate != Time[0].Day){
-//					firstDate = Time[0].Day;
-					
-//					String isFull = CheckIfFull(Time[0]);
-//					String isNM = CheckIfNM(Time[0]);
-//					String isQ1 = CheckIfQ1(Time[0]);
-//					String isQ3 = CheckIf3Q(Time[0]);
-//					TimeSpan ts = new TimeSpan(01, 00, 00);
-					
-//					if(isFull.Equals("=")){
-//						DateTime dtt3 = Time[0].AddDays(-3);
-//						dtt3 = dtt3.Date + ts;
-//						DrawTextAndDot(dtt3, FullMoon, "FM");	
-						
-//					}else if(isFull.Equals(">")){
-//						DateTime dtt2 = Time[0].AddDays(-2);
-//						dtt2 = dtt2.Date + ts;	
-//						DrawTextAndDot(dtt2, FullMoon, "FM");
-//					}
-					
-//					if(isNM.Equals("=")){
-//						DateTime dtt3 = Time[0].AddDays(-3);
-//						dtt3 = dtt3.Date + ts;
-//						DrawTextAndDot(dtt3, NewMoon, "NM");
-//					}else if(isNM.Equals(">")){
-//						DateTime dtt2 = Time[0].AddDays(-2);
-//						dtt2 = dtt2.Date + ts;
-//						DrawTextAndDot(dtt2, NewMoon, "NM");
-//					}
-					
-					
-//					if(isQ1.Equals("=")){
-//						DateTime dtt3 = Time[0].AddDays(-3);
-//						dtt3 = dtt3.Date + ts;
-//						DrawTextAndDot(dtt3, Q1, "Q1");						
-//					}else if(isQ1.Equals(">")){
-//						DateTime dtt2 = Time[0].AddDays(-2);
-//						dtt2 = dtt2.Date + ts;
-//						DrawTextAndDot(dtt2, Q1, "Q1");						
-//					}
-					
-//					if(isQ3.Equals("=")){
-//						DateTime dtt3 = Time[0].AddDays(-3);
-//						dtt3 = dtt3.Date + ts;
-//						DrawTextAndDot(dtt3, Q3, "Q3");						
-//					}else if(isQ3.Equals(">")){
-//						DateTime dtt2 = Time[0].AddDays(-2);
-//						dtt2 = dtt2.Date + ts;
-//						DrawTextAndDot(dtt2, Q3, "Q3");						
-//					}			
-//				}	
 			}
 			
 		}
@@ -402,29 +351,21 @@ namespace NinjaTrader.NinjaScript.Indicators
 				dt = dt.AddDays(-1);	
 			}					
 			DateTime dt2 = dt.Date;
-//			double height = (Bars.GetHigh(Bars.GetBar(dt2)) - Bars.GetLow(Bars.GetBar(dt2)) );
 			double height = (Bars.GetHigh(Bars.GetBar(dt2)) - Bars.GetLow(Bars.GetBar(dt2)) ) * 2;
 			double width = ChartControl.BarWidth;
-			int barsAgo = CurrentBar - Bars.GetBar(dt);// ChartBars.GetBarIdxByTime(ChartControl, dt);
-			//DateTime dt3 = ChartBars.GetTimeByBarIdx(ChartControl, barsAgo);
+			int barsAgo = CurrentBar - Bars.GetBar(dt);
 			TimeSpan ts = new TimeSpan(15,00,00);
 			dt = dt.Date + ts;
 				
 			if (text.Equals("FM") || text.Equals("Q1")){
-                Dot dot = Draw.Dot(this, dt.ToString("MM/dd/yyyy h:mm tt") + text, true, dt, Bars.GetLow(Bars.GetBar(dt)) - DistanceFromBars, color);
-                //Dot dot = Draw.Dot(this, dt.ToString("MM/dd/yyyy h:mm tt") + text, true, barsAgo, Bars.GetLow(Bars.GetBar(dt)) - DistanceFromBars, color);
+				Dot dot = Draw.Dot(this, dt.ToString("MM/dd/yyyy h:mm tt") + text, true, dt, Bars.GetLow(Bars.GetBar(dt)) - DistanceFromBars, color);
 				dot.OutlineBrush = color;
 				Double price = dot.Anchor.Price;
-//				Draw.Text(this, dt.ToString("MM/dd/yy h:mm tt") + " text", true, text, barsAgo, Bars.GetLow(Bars.GetBar(dt))- width - DistanceFromBars - (DistanceFromBars/2), 0, color,
-//					sf, TextAlignment.Center, Brushes.Transparent,  Brushes.Transparent, 100);	
 				Draw.Text(this, dt.ToString("MM/dd/yy h:mm tt") + " text", true, text, dt, Bars.GetLow(Bars.GetBar(dt))- width - DistanceFromBars - (DistanceFromBars/2), 0, color,
-					sf, TextAlignment.Center, Brushes.Transparent,  Brushes.Transparent, 100);	
+						sf, TextAlignment.Center, Brushes.Transparent,  Brushes.Transparent, 100);	
 			}else{
-                Dot dot = Draw.Dot(this, dt.ToString("MM/dd/yyyy h:mm tt") + text, true, dt, Bars.GetHigh(Bars.GetBar(dt)) + DistanceFromBars, color);
-                //Dot dot = Draw.Dot(this, dt.ToString("MM/dd/yyyy h:mm tt") + text, true, barsAgo, Bars.GetHigh(Bars.GetBar(dt)) + DistanceFromBars, color);
-                dot.OutlineBrush = color;
-//				Draw.Text(this, dt.ToString("MM/dd/yy h:mm tt") + " text", true, text, barsAgo, Bars.GetHigh(Bars.GetBar(dt)) + width + DistanceFromBars + (DistanceFromBars/2), 0, color,
-//					sf, TextAlignment.Center, Brushes.Transparent,  Brushes.Transparent, 100);	
+                		Dot dot = Draw.Dot(this, dt.ToString("MM/dd/yyyy h:mm tt") + text, true, dt, Bars.GetHigh(Bars.GetBar(dt)) + DistanceFromBars, color);
+                dot.OutlineBrush = color;	
 				Draw.Text(this, dt.ToString("MM/dd/yy h:mm tt") + " text", true, text, dt, Bars.GetHigh(Bars.GetBar(dt)) + width + DistanceFromBars + (DistanceFromBars/2), 0, color,
 					sf, TextAlignment.Center, Brushes.Transparent,  Brushes.Transparent, 100);	
 			}
