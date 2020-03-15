@@ -32,7 +32,7 @@ using System.Windows.Forms;
 //This namespace holds Indicators in this folder and is required. Do not change it. 
 namespace NinjaTrader.NinjaScript.Indicators
 {
-	public class TF_Times : Indicator
+	public class Weekly_Color : Indicator
 	{
 		private List<IndiChartNotes.StringWrapper> YellowSundayCollectionDefaults = new List<IndiChartNotes.StringWrapper>();
 		private List<IndiChartNotes.StringWrapper> YellowMondayCollectionDefaults = new List<IndiChartNotes.StringWrapper>();
@@ -94,22 +94,22 @@ namespace NinjaTrader.NinjaScript.Indicators
 		int counter = 1;
 		Brush ColorHolder1, ColorHolder2, ColorHolder3, ColorHolder4;
 		
-		public  List<NinjaTrader.NinjaScript.Indicators.TF_Times> _list;
+		public  List<NinjaTrader.NinjaScript.Indicators.Weekly_Color> _list;
 		[Browsable(false)]	
 		public DateTime Date {get; set;} 
 		
 		[Browsable(false)]
 		public string HolidayName {get; set;} 
 		
-		private TF_Times(DateTime date, string holidayName)	
+		private Weekly_Color(DateTime date, string holidayName)	
 		{
 			this.Date = date;
 			this.HolidayName = holidayName;
 		}
 		
-		public TF_Times()	
+		public Weekly_Color()	
 		{
-			_list=new List<NinjaTrader.NinjaScript.Indicators.TF_Times>();
+			_list=new List<NinjaTrader.NinjaScript.Indicators.Weekly_Color>();
 			HolidayDates();
 		}
 		
@@ -118,7 +118,7 @@ namespace NinjaTrader.NinjaScript.Indicators
 			if (State == State.SetDefaults)
 			{
 				Description									= @"Enter the description for your new custom Indicator here.";
-				Name										= "TF_Times";
+				Name										= "Weekly_Color";
 				Calculate									= Calculate.OnEachTick;
 				IsOverlay									= false;
 				DisplayInDataBox							= true;
@@ -178,7 +178,7 @@ namespace NinjaTrader.NinjaScript.Indicators
 			}
 			else if (State == State.Configure)
 			{
-				_list=new List<NinjaTrader.NinjaScript.Indicators.TF_Times>();
+				_list=new List<NinjaTrader.NinjaScript.Indicators.Weekly_Color>();
 				HolidayDates();
 			}
 		}
@@ -521,375 +521,375 @@ namespace NinjaTrader.NinjaScript.Indicators
 		//Holidays 2000-2040.
 		public void HolidayDates()	
 		{ 
-			_list.Add(new TF_Times(new DateTime(2000,1,17),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2001,1,15),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2002,1,21),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2003,1,20),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2004,1,19),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2005,1,17),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2006,1,16),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2007,1,15),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2008,1,21),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2009,1,19),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2010,1,18),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2011,1,17),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2012,1,16),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2013,1,21),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2014,1,20),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2015,1,19),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2016,1,18),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2017,1,16),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2018,1,15),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2019,1,21),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2020,1,20),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2021,1,18),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2022,1,17),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2023,1,16),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2024,1,15),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2025,1,20),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2026,1,19),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2027,1,18),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2028,1,17),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2029,1,15),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2030,1,21),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2031,1,20),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2032,1,19),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2033,1,17),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2034,1,16),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2035,1,15),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2036,1,21),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2037,1,19),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2038,1,18),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2039,1,17),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2040,1,16),"MLK"));
-			_list.Add(new TF_Times(new DateTime(2000,4,21),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2001,4,13),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2002,3,29),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2003,4,18),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2004,4,9),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2005,3,25),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2006,4,14),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2007,4,6),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2008,3,21),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2009,4,10),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2010,4,2),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2011,4,22),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2012,4,6),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2013,3,29),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2014,4,18),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2015,4,3),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2016,3,25),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2017,4,14),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2018,3,30),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2019,4,19),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2020,4,10),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2021,4,2),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2022,4,15),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2023,4,7),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2024,3,29),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2025,4,18),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2026,4,3),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2027,3,26),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2028,4,14),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2029,3,30),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2030,4,19),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2031,4,11),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2032,3,26),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2033,4,15),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2034,4,7),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2035,3,23),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2036,4,11),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2037,4,3),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2038,4,23),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2039,4,8),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2040,3,30),"Good Friday"));
-			_list.Add(new TF_Times(new DateTime(2000,11,23),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2001,11,22),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2002,11,28),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2003,11,27),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2004,11,25),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2005,11,24),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2006,11,23),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2007,11,22),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2008,11,27),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2009,11,26),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2010,11,25),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2011,11,24),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2012,11,22),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2013,11,28),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2014,11,27),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2015,11,26),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2016,11,24),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2017,11,23),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2018,11,22),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2019,11,28),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2020,11,26),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2021,11,25),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2022,11,24),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2023,11,23),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2024,11,28),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2025,11,27),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2026,11,26),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2027,11,25),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2028,11,23),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2029,11,22),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2030,11,28),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2031,11,27),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2032,11,25),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2033,11,24),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2034,11,23),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2035,11,22),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2036,11,27),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2037,11,26),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2038,11,25),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2039,11,24),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2040,11,22),"Thanksgiving"));
-			_list.Add(new TF_Times(new DateTime(2000,2,21),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2001,2,19),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2002,2,18),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2003,2,17),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2004,2,16),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2005,2,21),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2006,2,20),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2007,2,19),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2008,2,18),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2009,2,16),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2010,2,15),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2011,2,21),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2012,2,20),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2013,2,18),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2014,2,17),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2015,2,16),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2016,2,15),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2017,2,20),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2018,2,19),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2019,2,18),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2020,2,17),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2021,2,15),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2022,2,21),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2023,2,20),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2024,2,19),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2025,2,17),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2026,2,16),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2027,2,15),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2028,2,21),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2029,2,19),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2030,2,18),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2031,2,17),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2032,2,16),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2033,2,21),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2034,2,20),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2035,2,19),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2036,2,18),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2037,2,16),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2038,2,15),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2039,2,21),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2040,2,20),"Presidents Day"));
-			_list.Add(new TF_Times(new DateTime(2000,9,4),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2001,9,3),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2002,9,2),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2003,9,1),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2004,9,6),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2005,9,5),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2006,9,4),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2007,9,3),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2008,9,1),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2009,9,7),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2010,9,6),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2011,9,5),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2012,9,3),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2013,9,2),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2014,9,1),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2015,9,7),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2016,9,5),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2017,9,4),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2018,9,3),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2019,9,2),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2020,9,7),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2021,9,6),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2022,9,5),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2023,9,4),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2024,9,2),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2025,9,1),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2026,9,7),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2027,9,6),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2028,9,4),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2029,9,3),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2030,9,2),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2031,9,1),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2032,9,6),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2033,9,5),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2034,9,4),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2035,9,3),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2036,9,1),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2037,9,7),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2038,9,6),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2039,9,5),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2040,9,3),"Labor Day"));
-			_list.Add(new TF_Times(new DateTime(2000,5,29),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2001,5,28),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2002,5,27),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2003,5,26),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2004,5,31),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2005,5,30),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2006,5,29),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2007,5,28),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2008,5,26),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2009,5,25),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2010,5,31),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2011,5,30),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2012,5,28),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2013,5,27),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2014,5,26),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2015,5,25),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2016,5,30),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2017,5,29),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2018,5,28),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2019,5,27),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2020,5,25),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2021,5,31),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2022,5,30),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2023,5,29),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2024,5,27),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2025,5,26),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2026,5,25),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2027,5,31),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2028,5,29),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2029,5,28),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2030,5,27),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2031,5,26),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2032,5,31),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2033,5,30),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2034,5,29),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2035,5,28),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2036,5,26),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2037,5,25),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2038,5,31),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2039,5,30),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2040,5,28),"Memorial Day"));
-			_list.Add(new TF_Times(new DateTime(2000,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2001,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2002,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2003,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2004,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2005,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2006,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2007,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2008,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2009,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2010,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2011,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2012,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2013,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2014,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2015,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2016,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2017,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2018,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2019,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2020,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2021,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2022,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2023,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2024,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2025,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2026,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2027,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2028,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2029,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2030,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2031,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2032,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2033,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2034,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2035,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2036,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2037,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2038,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2039,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2040,1,1),"New Years"));
-			_list.Add(new TF_Times(new DateTime(2000,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2001,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2002,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2003,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2004,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2005,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2006,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2007,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2008,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2009,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2010,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2011,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2012,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2013,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2014,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2015,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2016,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2017,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2018,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2019,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2020,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2021,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2022,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2023,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2024,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2025,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2026,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2027,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2028,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2029,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2030,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2031,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2032,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2033,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2034,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2035,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2036,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2037,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2038,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2039,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2040,12,25),"Christmas"));
-			_list.Add(new TF_Times(new DateTime(2000,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2001,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2002,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2003,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2004,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2005,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2006,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2007,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2008,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2009,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2010,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2011,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2012,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2013,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2014,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2015,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2016,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2017,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2018,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2019,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2020,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2021,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2022,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2023,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2024,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2025,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2026,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2027,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2028,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2029,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2030,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2031,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2032,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2033,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2034,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2035,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2036,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2037,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2038,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2039,7,4),"July4th"));
-			_list.Add(new TF_Times(new DateTime(2040,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2000,1,17),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2001,1,15),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2002,1,21),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2003,1,20),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2004,1,19),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2005,1,17),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2006,1,16),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2007,1,15),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2008,1,21),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2009,1,19),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2010,1,18),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2011,1,17),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2012,1,16),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2013,1,21),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2014,1,20),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2015,1,19),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2016,1,18),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2017,1,16),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2018,1,15),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2019,1,21),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2020,1,20),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2021,1,18),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2022,1,17),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2023,1,16),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2024,1,15),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2025,1,20),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2026,1,19),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2027,1,18),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2028,1,17),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2029,1,15),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2030,1,21),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2031,1,20),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2032,1,19),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2033,1,17),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2034,1,16),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2035,1,15),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2036,1,21),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2037,1,19),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2038,1,18),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2039,1,17),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2040,1,16),"MLK"));
+			_list.Add(new Weekly_Color(new DateTime(2000,4,21),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2001,4,13),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2002,3,29),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2003,4,18),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2004,4,9),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2005,3,25),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2006,4,14),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2007,4,6),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2008,3,21),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2009,4,10),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2010,4,2),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2011,4,22),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2012,4,6),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2013,3,29),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2014,4,18),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2015,4,3),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2016,3,25),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2017,4,14),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2018,3,30),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2019,4,19),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2020,4,10),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2021,4,2),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2022,4,15),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2023,4,7),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2024,3,29),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2025,4,18),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2026,4,3),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2027,3,26),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2028,4,14),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2029,3,30),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2030,4,19),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2031,4,11),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2032,3,26),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2033,4,15),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2034,4,7),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2035,3,23),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2036,4,11),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2037,4,3),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2038,4,23),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2039,4,8),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2040,3,30),"Good Friday"));
+			_list.Add(new Weekly_Color(new DateTime(2000,11,23),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2001,11,22),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2002,11,28),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2003,11,27),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2004,11,25),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2005,11,24),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2006,11,23),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2007,11,22),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2008,11,27),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2009,11,26),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2010,11,25),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2011,11,24),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2012,11,22),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2013,11,28),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2014,11,27),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2015,11,26),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2016,11,24),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2017,11,23),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2018,11,22),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2019,11,28),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2020,11,26),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2021,11,25),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2022,11,24),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2023,11,23),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2024,11,28),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2025,11,27),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2026,11,26),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2027,11,25),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2028,11,23),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2029,11,22),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2030,11,28),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2031,11,27),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2032,11,25),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2033,11,24),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2034,11,23),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2035,11,22),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2036,11,27),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2037,11,26),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2038,11,25),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2039,11,24),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2040,11,22),"Thanksgiving"));
+			_list.Add(new Weekly_Color(new DateTime(2000,2,21),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2001,2,19),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2002,2,18),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2003,2,17),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2004,2,16),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2005,2,21),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2006,2,20),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2007,2,19),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2008,2,18),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2009,2,16),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2010,2,15),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2011,2,21),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2012,2,20),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2013,2,18),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2014,2,17),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2015,2,16),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2016,2,15),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2017,2,20),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2018,2,19),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2019,2,18),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2020,2,17),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2021,2,15),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2022,2,21),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2023,2,20),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2024,2,19),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2025,2,17),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2026,2,16),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2027,2,15),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2028,2,21),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2029,2,19),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2030,2,18),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2031,2,17),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2032,2,16),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2033,2,21),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2034,2,20),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2035,2,19),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2036,2,18),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2037,2,16),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2038,2,15),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2039,2,21),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2040,2,20),"Presidents Day"));
+			_list.Add(new Weekly_Color(new DateTime(2000,9,4),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2001,9,3),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2002,9,2),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2003,9,1),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2004,9,6),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2005,9,5),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2006,9,4),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2007,9,3),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2008,9,1),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2009,9,7),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2010,9,6),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2011,9,5),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2012,9,3),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2013,9,2),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2014,9,1),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2015,9,7),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2016,9,5),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2017,9,4),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2018,9,3),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2019,9,2),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2020,9,7),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2021,9,6),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2022,9,5),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2023,9,4),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2024,9,2),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2025,9,1),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2026,9,7),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2027,9,6),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2028,9,4),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2029,9,3),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2030,9,2),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2031,9,1),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2032,9,6),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2033,9,5),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2034,9,4),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2035,9,3),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2036,9,1),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2037,9,7),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2038,9,6),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2039,9,5),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2040,9,3),"Labor Day"));
+			_list.Add(new Weekly_Color(new DateTime(2000,5,29),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2001,5,28),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2002,5,27),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2003,5,26),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2004,5,31),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2005,5,30),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2006,5,29),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2007,5,28),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2008,5,26),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2009,5,25),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2010,5,31),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2011,5,30),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2012,5,28),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2013,5,27),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2014,5,26),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2015,5,25),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2016,5,30),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2017,5,29),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2018,5,28),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2019,5,27),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2020,5,25),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2021,5,31),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2022,5,30),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2023,5,29),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2024,5,27),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2025,5,26),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2026,5,25),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2027,5,31),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2028,5,29),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2029,5,28),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2030,5,27),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2031,5,26),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2032,5,31),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2033,5,30),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2034,5,29),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2035,5,28),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2036,5,26),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2037,5,25),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2038,5,31),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2039,5,30),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2040,5,28),"Memorial Day"));
+			_list.Add(new Weekly_Color(new DateTime(2000,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2001,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2002,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2003,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2004,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2005,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2006,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2007,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2008,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2009,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2010,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2011,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2012,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2013,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2014,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2015,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2016,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2017,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2018,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2019,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2020,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2021,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2022,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2023,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2024,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2025,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2026,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2027,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2028,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2029,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2030,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2031,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2032,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2033,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2034,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2035,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2036,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2037,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2038,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2039,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2040,1,1),"New Years"));
+			_list.Add(new Weekly_Color(new DateTime(2000,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2001,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2002,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2003,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2004,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2005,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2006,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2007,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2008,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2009,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2010,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2011,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2012,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2013,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2014,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2015,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2016,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2017,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2018,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2019,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2020,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2021,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2022,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2023,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2024,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2025,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2026,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2027,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2028,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2029,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2030,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2031,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2032,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2033,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2034,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2035,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2036,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2037,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2038,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2039,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2040,12,25),"Christmas"));
+			_list.Add(new Weekly_Color(new DateTime(2000,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2001,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2002,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2003,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2004,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2005,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2006,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2007,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2008,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2009,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2010,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2011,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2012,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2013,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2014,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2015,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2016,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2017,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2018,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2019,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2020,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2021,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2022,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2023,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2024,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2025,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2026,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2027,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2028,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2029,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2030,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2031,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2032,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2033,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2034,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2035,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2036,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2037,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2038,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2039,7,4),"July4th"));
+			_list.Add(new Weekly_Color(new DateTime(2040,7,4),"July4th"));
    		 }
 
 		#region Properties
@@ -2046,19 +2046,19 @@ namespace NinjaTrader.NinjaScript.Indicators
 {
 	public partial class Indicator : NinjaTrader.Gui.NinjaScript.IndicatorRenderBase
 	{
-		private TF_Times[] cacheTF_Times;
-		public TF_Times TF_Times(DateTime openMarket, DateTime closeMarket, Brush color1, Brush color2, Brush color3, Brush color4, DateTime extraTime1, DateTime extraTime2, bool enableExtraTime1, bool enableExtraTime2, SimpleFont yellowWeekFont, SimpleFont greenWeekFont, SimpleFont redWeekFont, SimpleFont blueWeekFont)
+		private Weekly_Color[] cacheWeekly_Color;
+		public Weekly_Color Weekly_Color(DateTime openMarket, DateTime closeMarket, Brush color1, Brush color2, Brush color3, Brush color4, DateTime extraTime1, DateTime extraTime2, bool enableExtraTime1, bool enableExtraTime2, SimpleFont yellowWeekFont, SimpleFont greenWeekFont, SimpleFont redWeekFont, SimpleFont blueWeekFont)
 		{
-			return TF_Times(Input, openMarket, closeMarket, color1, color2, color3, color4, extraTime1, extraTime2, enableExtraTime1, enableExtraTime2, yellowWeekFont, greenWeekFont, redWeekFont, blueWeekFont);
+			return Weekly_Color(Input, openMarket, closeMarket, color1, color2, color3, color4, extraTime1, extraTime2, enableExtraTime1, enableExtraTime2, yellowWeekFont, greenWeekFont, redWeekFont, blueWeekFont);
 		}
 
-		public TF_Times TF_Times(ISeries<double> input, DateTime openMarket, DateTime closeMarket, Brush color1, Brush color2, Brush color3, Brush color4, DateTime extraTime1, DateTime extraTime2, bool enableExtraTime1, bool enableExtraTime2, SimpleFont yellowWeekFont, SimpleFont greenWeekFont, SimpleFont redWeekFont, SimpleFont blueWeekFont)
+		public Weekly_Color Weekly_Color(ISeries<double> input, DateTime openMarket, DateTime closeMarket, Brush color1, Brush color2, Brush color3, Brush color4, DateTime extraTime1, DateTime extraTime2, bool enableExtraTime1, bool enableExtraTime2, SimpleFont yellowWeekFont, SimpleFont greenWeekFont, SimpleFont redWeekFont, SimpleFont blueWeekFont)
 		{
-			if (cacheTF_Times != null)
-				for (int idx = 0; idx < cacheTF_Times.Length; idx++)
-					if (cacheTF_Times[idx] != null && cacheTF_Times[idx].OpenMarket == openMarket && cacheTF_Times[idx].CloseMarket == closeMarket && cacheTF_Times[idx].Color1 == color1 && cacheTF_Times[idx].Color2 == color2 && cacheTF_Times[idx].Color3 == color3 && cacheTF_Times[idx].Color4 == color4 && cacheTF_Times[idx].ExtraTime1 == extraTime1 && cacheTF_Times[idx].ExtraTime2 == extraTime2 && cacheTF_Times[idx].EnableExtraTime1 == enableExtraTime1 && cacheTF_Times[idx].EnableExtraTime2 == enableExtraTime2 && cacheTF_Times[idx].YellowWeekFont == yellowWeekFont && cacheTF_Times[idx].GreenWeekFont == greenWeekFont && cacheTF_Times[idx].RedWeekFont == redWeekFont && cacheTF_Times[idx].BlueWeekFont == blueWeekFont && cacheTF_Times[idx].EqualsInput(input))
-						return cacheTF_Times[idx];
-			return CacheIndicator<TF_Times>(new TF_Times(){ OpenMarket = openMarket, CloseMarket = closeMarket, Color1 = color1, Color2 = color2, Color3 = color3, Color4 = color4, ExtraTime1 = extraTime1, ExtraTime2 = extraTime2, EnableExtraTime1 = enableExtraTime1, EnableExtraTime2 = enableExtraTime2, YellowWeekFont = yellowWeekFont, GreenWeekFont = greenWeekFont, RedWeekFont = redWeekFont, BlueWeekFont = blueWeekFont }, input, ref cacheTF_Times);
+			if (cacheWeekly_Color != null)
+				for (int idx = 0; idx < cacheWeekly_Color.Length; idx++)
+					if (cacheWeekly_Color[idx] != null && cacheWeekly_Color[idx].OpenMarket == openMarket && cacheWeekly_Color[idx].CloseMarket == closeMarket && cacheWeekly_Color[idx].Color1 == color1 && cacheWeekly_Color[idx].Color2 == color2 && cacheWeekly_Color[idx].Color3 == color3 && cacheWeekly_Color[idx].Color4 == color4 && cacheWeekly_Color[idx].ExtraTime1 == extraTime1 && cacheWeekly_Color[idx].ExtraTime2 == extraTime2 && cacheWeekly_Color[idx].EnableExtraTime1 == enableExtraTime1 && cacheWeekly_Color[idx].EnableExtraTime2 == enableExtraTime2 && cacheWeekly_Color[idx].YellowWeekFont == yellowWeekFont && cacheWeekly_Color[idx].GreenWeekFont == greenWeekFont && cacheWeekly_Color[idx].RedWeekFont == redWeekFont && cacheWeekly_Color[idx].BlueWeekFont == blueWeekFont && cacheWeekly_Color[idx].EqualsInput(input))
+						return cacheWeekly_Color[idx];
+			return CacheIndicator<Weekly_Color>(new Weekly_Color(){ OpenMarket = openMarket, CloseMarket = closeMarket, Color1 = color1, Color2 = color2, Color3 = color3, Color4 = color4, ExtraTime1 = extraTime1, ExtraTime2 = extraTime2, EnableExtraTime1 = enableExtraTime1, EnableExtraTime2 = enableExtraTime2, YellowWeekFont = yellowWeekFont, GreenWeekFont = greenWeekFont, RedWeekFont = redWeekFont, BlueWeekFont = blueWeekFont }, input, ref cacheWeekly_Color);
 		}
 	}
 }
@@ -2067,14 +2067,14 @@ namespace NinjaTrader.NinjaScript.MarketAnalyzerColumns
 {
 	public partial class MarketAnalyzerColumn : MarketAnalyzerColumnBase
 	{
-		public Indicators.TF_Times TF_Times(DateTime openMarket, DateTime closeMarket, Brush color1, Brush color2, Brush color3, Brush color4, DateTime extraTime1, DateTime extraTime2, bool enableExtraTime1, bool enableExtraTime2, SimpleFont yellowWeekFont, SimpleFont greenWeekFont, SimpleFont redWeekFont, SimpleFont blueWeekFont)
+		public Indicators.Weekly_Color Weekly_Color(DateTime openMarket, DateTime closeMarket, Brush color1, Brush color2, Brush color3, Brush color4, DateTime extraTime1, DateTime extraTime2, bool enableExtraTime1, bool enableExtraTime2, SimpleFont yellowWeekFont, SimpleFont greenWeekFont, SimpleFont redWeekFont, SimpleFont blueWeekFont)
 		{
-			return indicator.TF_Times(Input, openMarket, closeMarket, color1, color2, color3, color4, extraTime1, extraTime2, enableExtraTime1, enableExtraTime2, yellowWeekFont, greenWeekFont, redWeekFont, blueWeekFont);
+			return indicator.Weekly_Color(Input, openMarket, closeMarket, color1, color2, color3, color4, extraTime1, extraTime2, enableExtraTime1, enableExtraTime2, yellowWeekFont, greenWeekFont, redWeekFont, blueWeekFont);
 		}
 
-		public Indicators.TF_Times TF_Times(ISeries<double> input , DateTime openMarket, DateTime closeMarket, Brush color1, Brush color2, Brush color3, Brush color4, DateTime extraTime1, DateTime extraTime2, bool enableExtraTime1, bool enableExtraTime2, SimpleFont yellowWeekFont, SimpleFont greenWeekFont, SimpleFont redWeekFont, SimpleFont blueWeekFont)
+		public Indicators.Weekly_Color Weekly_Color(ISeries<double> input , DateTime openMarket, DateTime closeMarket, Brush color1, Brush color2, Brush color3, Brush color4, DateTime extraTime1, DateTime extraTime2, bool enableExtraTime1, bool enableExtraTime2, SimpleFont yellowWeekFont, SimpleFont greenWeekFont, SimpleFont redWeekFont, SimpleFont blueWeekFont)
 		{
-			return indicator.TF_Times(input, openMarket, closeMarket, color1, color2, color3, color4, extraTime1, extraTime2, enableExtraTime1, enableExtraTime2, yellowWeekFont, greenWeekFont, redWeekFont, blueWeekFont);
+			return indicator.Weekly_Color(input, openMarket, closeMarket, color1, color2, color3, color4, extraTime1, extraTime2, enableExtraTime1, enableExtraTime2, yellowWeekFont, greenWeekFont, redWeekFont, blueWeekFont);
 		}
 	}
 }
@@ -2083,14 +2083,14 @@ namespace NinjaTrader.NinjaScript.Strategies
 {
 	public partial class Strategy : NinjaTrader.Gui.NinjaScript.StrategyRenderBase
 	{
-		public Indicators.TF_Times TF_Times(DateTime openMarket, DateTime closeMarket, Brush color1, Brush color2, Brush color3, Brush color4, DateTime extraTime1, DateTime extraTime2, bool enableExtraTime1, bool enableExtraTime2, SimpleFont yellowWeekFont, SimpleFont greenWeekFont, SimpleFont redWeekFont, SimpleFont blueWeekFont)
+		public Indicators.Weekly_Color Weekly_Color(DateTime openMarket, DateTime closeMarket, Brush color1, Brush color2, Brush color3, Brush color4, DateTime extraTime1, DateTime extraTime2, bool enableExtraTime1, bool enableExtraTime2, SimpleFont yellowWeekFont, SimpleFont greenWeekFont, SimpleFont redWeekFont, SimpleFont blueWeekFont)
 		{
-			return indicator.TF_Times(Input, openMarket, closeMarket, color1, color2, color3, color4, extraTime1, extraTime2, enableExtraTime1, enableExtraTime2, yellowWeekFont, greenWeekFont, redWeekFont, blueWeekFont);
+			return indicator.Weekly_Color(Input, openMarket, closeMarket, color1, color2, color3, color4, extraTime1, extraTime2, enableExtraTime1, enableExtraTime2, yellowWeekFont, greenWeekFont, redWeekFont, blueWeekFont);
 		}
 
-		public Indicators.TF_Times TF_Times(ISeries<double> input , DateTime openMarket, DateTime closeMarket, Brush color1, Brush color2, Brush color3, Brush color4, DateTime extraTime1, DateTime extraTime2, bool enableExtraTime1, bool enableExtraTime2, SimpleFont yellowWeekFont, SimpleFont greenWeekFont, SimpleFont redWeekFont, SimpleFont blueWeekFont)
+		public Indicators.Weekly_Color Weekly_Color(ISeries<double> input , DateTime openMarket, DateTime closeMarket, Brush color1, Brush color2, Brush color3, Brush color4, DateTime extraTime1, DateTime extraTime2, bool enableExtraTime1, bool enableExtraTime2, SimpleFont yellowWeekFont, SimpleFont greenWeekFont, SimpleFont redWeekFont, SimpleFont blueWeekFont)
 		{
-			return indicator.TF_Times(input, openMarket, closeMarket, color1, color2, color3, color4, extraTime1, extraTime2, enableExtraTime1, enableExtraTime2, yellowWeekFont, greenWeekFont, redWeekFont, blueWeekFont);
+			return indicator.Weekly_Color(input, openMarket, closeMarket, color1, color2, color3, color4, extraTime1, extraTime2, enableExtraTime1, enableExtraTime2, yellowWeekFont, greenWeekFont, redWeekFont, blueWeekFont);
 		}
 	}
 }
